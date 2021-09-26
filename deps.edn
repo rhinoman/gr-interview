@@ -1,0 +1,12 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.1"}
+        metosin/reitit-ring {:mvn/version "0.5.5"}
+        metosin/reitit-middleware {:mvn/version "0.5.5"}
+        ring/ring-jetty-adapter {:mvn/version "1.8.1"}}
+ :aliases {:test {:extra-paths ["test"]
+                  :extra-deps {io.github.cognitect-labs/test-runner
+                               {:git/tag "v0.5.0" :git/sha "b3fd0d2"}}
+                  :main-opts ["-m" "cognitect.test-runner"]
+                  :exec-fn cognitect.test-runner.api/test}
+           }
+ }
