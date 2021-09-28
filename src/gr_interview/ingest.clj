@@ -24,7 +24,8 @@
   "Processes a single line (record) from an input file"
   [^String line]
   (let [rec (process-line line)]
-    (swap! db conj rec)))
+    (swap! db conj rec)
+    rec))
 
 (defn ingest-file
   "Ingest a whole file"
