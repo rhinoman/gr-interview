@@ -1,10 +1,20 @@
 (ns gr-interview.data
-  (:require [clojure.pprint :refer [pprint]]))
+  (:require [clojure.pprint :refer [pprint]])
+  (:import (java.time.format DateTimeFormatter FormatStyle)))
 
 (def db (atom ()))
 
+
+(def date-formatter (DateTimeFormatter/ofPattern "M/d/YYYY"))
+(defn format-record [rec]
+  (str (:LastName rec) ", "
+       (:FirstName rec) ", "
+       (:Email rec) ", "
+       (:FavoriteColor rec) ", "
+       (.format (:DateOfBirth rec) date-formatter)))
+
 (defn print-records [recs]
-  (doseq [r recs] (pprint r)))
+  (doseq [r recs] (println (format-record r))))
 
 (defn by-fc-ln [x y]
   (compare [(:FavoriteColor x) (:LastName x)]
