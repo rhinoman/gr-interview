@@ -1,5 +1,4 @@
 (ns gr-interview.data
-  (:require [clojure.pprint :refer [pprint]])
   (:import (java.time.format DateTimeFormatter FormatStyle)))
 
 (def db (atom ()))
